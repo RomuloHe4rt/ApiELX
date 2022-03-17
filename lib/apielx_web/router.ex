@@ -21,10 +21,13 @@ defmodule ApielxWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ApielxWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ApielxWeb do
+    pipe_through :api
 
+    get "/categories", CategoryController, :index
+  end
+
+  # coveralls-ignore-start
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
@@ -53,4 +56,6 @@ defmodule ApielxWeb.Router do
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end
+
+  # coveralls-ignore-stop
 end
