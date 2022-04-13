@@ -24,7 +24,9 @@ defmodule ApielxWeb.Router do
   scope "/api", ApielxWeb do
     pipe_through :api
 
+    get "/categories/:id", CategoryController, :show
     get "/categories", CategoryController, :index
+    post "/categories", CategoryController, :create
   end
 
   # coveralls-ignore-start
